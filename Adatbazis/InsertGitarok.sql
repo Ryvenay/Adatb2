@@ -10,7 +10,7 @@ create or replace procedure spInsert_gitarok(
 )
 authid definer
 as
-    v_check_rendszam int;
+    v_check_sorozatszam int;
     v_gyarto_id int;
 begin
     p_out_rowcnt := 0;
@@ -19,12 +19,12 @@ begin
         sp_insertGyartok(p_gyarto);
         v_gyarto_id := sf_getGyartoId(p_gyarto);
     end if;
-    v_check_rendszam := sf_check_rendszam(p_rendszam);
-    if v_check_rendszam = 1 then
+    v_check_sorozatszam := sf_check_sorozatszam(p_sorozatszam);
+    if v_check_sorozatszam = 1 then
         insert into autok
-            (rendszam, alvazszam, gyarto_id, tipus, uzemanyag, evjarat, gyorsulas, meghajtas)
+            (sorozatszam, tipus, gyarto_id, gyartas_datum, balkezes, erintok_szama, hangszedok)
         values
-            (p_rendszam, p_alvazszam, v_gyarto_id, p_tipus, p_uzemanyag, p_evjarat, p_gyorsulas, p_meghajtas);
+            (p_sorozatszam, p_tipus, v_gyarto_id, p_gyartas_datum, p_balkezes, p_erintok_szama, p_hangszedok);
         p_out_rowcnt := SQL%rowcount;
         commit;
     end if;
