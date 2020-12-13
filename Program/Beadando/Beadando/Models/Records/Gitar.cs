@@ -10,7 +10,7 @@ namespace Beadando.Models.Records
     {
         private string sorozatszam;
 
-        public string Sorozatzam
+        public string Sorozatszam
         {
             get { return sorozatszam; }
             set 
@@ -91,6 +91,20 @@ namespace Beadando.Models.Records
             }
         }
 
+        private string hangszedok;
+
+        public string Hangszedok
+        {
+            get { return hangszedok; }
+            set 
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("A hangszedők mező nem lehet üres!");
+                }
+                hangszedok = value; 
+            }
+        }
 
 
     }
