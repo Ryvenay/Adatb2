@@ -76,6 +76,7 @@
             this.tb_sorozatszam.Name = "tb_sorozatszam";
             this.tb_sorozatszam.Size = new System.Drawing.Size(171, 22);
             this.tb_sorozatszam.TabIndex = 2;
+            this.tb_sorozatszam.Leave += new System.EventHandler(this.tb_Sorozatszam_Leave);
             // 
             // label2
             // 

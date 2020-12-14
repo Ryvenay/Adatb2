@@ -117,13 +117,20 @@ namespace Beadando
                 dataGridViewRow.Cells.Add(TipusCell);
 
                 DataGridViewCell DatumCell = new DataGridViewTextBoxCell();
-                DatumCell.Value = gitarokList[i].GyartasDatum;
+                DatumCell.Value = gitarokList[i].GyartasDatum.Year + "-" + gitarokList[i].GyartasDatum.Month + "-" + gitarokList[i].GyartasDatum.Day + " ";
                 dataGridViewRow.Cells.Add(DatumCell);
 
                 dataGridViewRows[i] = dataGridViewRow;
             }
             dgv_gitarok.Rows.Clear();
             dgv_gitarok.Rows.AddRange(dataGridViewRows);
+        }
+
+        private void tb_Sorozatszam_Leave(object sender, EventArgs e)
+        {
+            string actual = tb_sorozatszam.Text;
+            bool Correct = tableManager.CheckSorozatszam(actual);
+            tb_sorozatszam.BackColor = Correct ? Color.White : Color.Yellow;
         }
 
     }

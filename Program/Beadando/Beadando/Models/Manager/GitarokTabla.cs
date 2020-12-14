@@ -30,7 +30,7 @@ namespace Beadando.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT g.sorozatszam, gy.nev, g.tipus FROM " +
+                CommandText = "SELECT g.sorozatszam, gy.nev, g.tipus, g.gyartas_datum FROM " +
                 " gitarok g INNER JOIN gyartok gy ON gy.id = g.gyarto_id"
             };
 
@@ -43,6 +43,7 @@ namespace Beadando.Models.Manager
                 gitar.Sorozatszam = reader["sorozatszam"].ToString();
                 gitar.Tipus = reader["tipus"].ToString();
                 gitar.Gyarto = reader["nev"].ToString();
+                gitar.GyartasDatum = DateTime.Parse(reader["gyartas_datum"].ToString());
 
                 records.Add(gitar);
             }
@@ -213,7 +214,7 @@ namespace Beadando.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "sf_check_sorozatszam"
+                CommandText = "sf_checksorozatszam"
             };
 
             OracleParameter correct = new OracleParameter()
@@ -225,7 +226,7 @@ namespace Beadando.Models.Manager
             OracleParameter sorozatszamParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = "p_rendszam",
+                ParameterName = "p_sorozatszam",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = sorozatszam
             };
@@ -233,6 +234,7 @@ namespace Beadando.Models.Manager
             command.Parameters.Add(sorozatszamParameter);
 
             command.Connection = oc;
+            command.ExecuteNonQuery();
 
             try
             {
