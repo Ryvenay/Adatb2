@@ -34,6 +34,7 @@ namespace Beadando
         private void Form1_Load(object sender, EventArgs e)
         {
             InitDataGridView();
+            cbb_hangszedok.DataSource = Enum.GetValues(typeof(Hangszedo));
             bgWorker.RunWorkerAsync();
         }
 
@@ -58,7 +59,7 @@ namespace Beadando
 
             DataGridViewColumn SorozatszamColumn = new DataGridViewColumn
             {
-                Name = "sorozatzam",
+                Name = "sorozatszam",
                 HeaderText = "Sorozatszám",
                 Visible = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
@@ -133,5 +134,40 @@ namespace Beadando
             tb_sorozatszam.BackColor = Correct ? Color.White : Color.Yellow;
         }
 
+        private void btn_hozzaad_Click(object sender, EventArgs e)
+        {
+            Gitar gitar = new Gitar
+            {
+                Sorozatszam = tb_sorozatszam.Text,
+                Tipus = tb_tipus.Text,
+                Gyarto = tb_gyarto.Text,
+                GyartasDatum = dtp_gyartasDatum.Value,
+                Balkezes = cb_balkezes.Checked,
+                Hangszedok = cbb_hangszedok.SelectedItem.ToString(),
+                ErintokSzama = int.Parse(tb_erintokszama.Text)
+            };
+
+
+            tableManager.Insert(gitar);
+            bgWorker.RunWorkerAsync();
+        }
+
+        private void btn_torol_Click(object sender, EventArgs e)
+        {
+            int ToroltSorok = 0;
+            foreach (DataGridViewRow selectedRows in dgv_gitarok.SelectedRows)
+            {
+                Gitar TorlendoRekord = new Gitar();
+                TorlendoRekord.Sorozatszam = selectedRows.Cells["sorozatszam"].Value.ToString();
+
+                ToroltSorok += tableManager.Delete(TorlendoRekord);
+            }
+
+            MessageBox.Show(string.Format("{0} sor lett törölve", ToroltSorok));
+            if (ToroltSorok != 0)
+            {
+                bgWorker.RunWorkerAsync();
+            }
+        }
     }
 }

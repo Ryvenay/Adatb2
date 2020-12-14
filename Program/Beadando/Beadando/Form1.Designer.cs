@@ -38,9 +38,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtp_gyartasDatum = new System.Windows.Forms.DateTimePicker();
             this.cb_balkezes = new System.Windows.Forms.CheckBox();
-            this.tb_erintokszama = new System.Windows.Forms.Label();
-            this.tb_erintok = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelx = new System.Windows.Forms.Label();
+            this.tb_erintokszama = new System.Windows.Forms.TextBox();
+            this.cbb_hangszedok = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_hozzaad = new System.Windows.Forms.Button();
             this.btn_torol = new System.Windows.Forms.Button();
@@ -49,17 +49,17 @@
             // 
             // dgv_gitarok
             // 
+            this.dgv_gitarok.AllowUserToAddRows = false;
+            this.dgv_gitarok.AllowUserToDeleteRows = false;
             this.dgv_gitarok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_gitarok.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_gitarok.Location = new System.Drawing.Point(12, 12);
             this.dgv_gitarok.Name = "dgv_gitarok";
             this.dgv_gitarok.RowHeadersWidth = 51;
             this.dgv_gitarok.RowTemplate.Height = 24;
+            this.dgv_gitarok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_gitarok.Size = new System.Drawing.Size(776, 273);
             this.dgv_gitarok.TabIndex = 0;
-            this.dgv_gitarok.AllowUserToAddRows = false;
-            this.dgv_gitarok.AllowUserToDeleteRows = false;
-            this.dgv_gitarok.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_gitarok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // label1
             // 
@@ -139,29 +139,29 @@
             this.cb_balkezes.Text = "Balkezes";
             this.cb_balkezes.UseVisualStyleBackColor = true;
             // 
+            // labelx
+            // 
+            this.labelx.AutoSize = true;
+            this.labelx.Location = new System.Drawing.Point(414, 362);
+            this.labelx.Name = "labelx";
+            this.labelx.Size = new System.Drawing.Size(101, 17);
+            this.labelx.TabIndex = 11;
+            this.labelx.Text = "Érintők száma:";
+            // 
             // tb_erintokszama
             // 
-            this.tb_erintokszama.AutoSize = true;
-            this.tb_erintokszama.Location = new System.Drawing.Point(414, 362);
+            this.tb_erintokszama.Location = new System.Drawing.Point(547, 357);
             this.tb_erintokszama.Name = "tb_erintokszama";
-            this.tb_erintokszama.Size = new System.Drawing.Size(101, 17);
-            this.tb_erintokszama.TabIndex = 11;
-            this.tb_erintokszama.Text = "Érintők száma:";
+            this.tb_erintokszama.Size = new System.Drawing.Size(145, 22);
+            this.tb_erintokszama.TabIndex = 12;
             // 
-            // tb_erintok
+            // cbb_hangszedok
             // 
-            this.tb_erintok.Location = new System.Drawing.Point(547, 357);
-            this.tb_erintok.Name = "tb_erintok";
-            this.tb_erintok.Size = new System.Drawing.Size(145, 22);
-            this.tb_erintok.TabIndex = 12;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(547, 397);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 24);
-            this.comboBox1.TabIndex = 13;
+            this.cbb_hangszedok.FormattingEnabled = true;
+            this.cbb_hangszedok.Location = new System.Drawing.Point(547, 397);
+            this.cbb_hangszedok.Name = "cbb_hangszedok";
+            this.cbb_hangszedok.Size = new System.Drawing.Size(145, 24);
+            this.cbb_hangszedok.TabIndex = 13;
             // 
             // label5
             // 
@@ -180,6 +180,7 @@
             this.btn_hozzaad.TabIndex = 15;
             this.btn_hozzaad.Text = "Hozzáad";
             this.btn_hozzaad.UseVisualStyleBackColor = true;
+            this.btn_hozzaad.Click += new System.EventHandler(this.btn_hozzaad_Click);
             // 
             // btn_torol
             // 
@@ -189,6 +190,7 @@
             this.btn_torol.TabIndex = 16;
             this.btn_torol.Text = "Töröl";
             this.btn_torol.UseVisualStyleBackColor = true;
+            this.btn_torol.Click += new System.EventHandler(this.btn_torol_Click);
             // 
             // Form1
             // 
@@ -198,9 +200,9 @@
             this.Controls.Add(this.btn_torol);
             this.Controls.Add(this.btn_hozzaad);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.tb_erintok);
+            this.Controls.Add(this.cbb_hangszedok);
             this.Controls.Add(this.tb_erintokszama);
+            this.Controls.Add(this.labelx);
             this.Controls.Add(this.cb_balkezes);
             this.Controls.Add(this.dtp_gyartasDatum);
             this.Controls.Add(this.label4);
@@ -232,9 +234,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtp_gyartasDatum;
         private System.Windows.Forms.CheckBox cb_balkezes;
-        private System.Windows.Forms.Label tb_erintokszama;
-        private System.Windows.Forms.TextBox tb_erintok;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelx;
+        private System.Windows.Forms.TextBox tb_erintokszama;
+        private System.Windows.Forms.ComboBox cbb_hangszedok;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_hozzaad;
         private System.Windows.Forms.Button btn_torol;

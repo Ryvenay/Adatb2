@@ -65,7 +65,7 @@ namespace Beadando.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "DELETE FROM autok WHERE sorozatszam = :sorozatszam"
+                CommandText = "DELETE FROM gitarok WHERE sorozatszam = :sorozatszam"
             };
 
             OracleParameter sorozatszamParameter = new OracleParameter()
@@ -86,7 +86,7 @@ namespace Beadando.Models.Manager
                 affectedRows = command.ExecuteNonQuery();
                 ot.Commit();
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 ot.Rollback();
             }
@@ -105,7 +105,7 @@ namespace Beadando.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "spInsert_gitarok"
+                CommandText = "sp_Insertgitarok"
             };
 
             OracleParameter sorozatszamParameter = new OracleParameter()
@@ -146,7 +146,7 @@ namespace Beadando.Models.Manager
 
             OracleParameter balkezesParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.VarNumeric,
+                DbType = System.Data.DbType.Int32,
                 ParameterName = "p_balkezes",
                 Direction = System.Data.ParameterDirection.Input
             };
@@ -159,7 +159,7 @@ namespace Beadando.Models.Manager
                 balkezesParameter.Value = 0;
             }
 
-            command.Parameters.Add(sorozatszamParameter);
+            command.Parameters.Add(balkezesParameter);
 
             OracleParameter erintokSzamaParameter = new OracleParameter()
             {
@@ -168,7 +168,7 @@ namespace Beadando.Models.Manager
                 Direction = System.Data.ParameterDirection.Input,
                 Value = gitar.ErintokSzama
             };
-            command.Parameters.Add(gyartasDatumParameter);
+            command.Parameters.Add(erintokSzamaParameter);
 
             OracleParameter hangszedokParameter = new OracleParameter()
             {
@@ -185,11 +185,11 @@ namespace Beadando.Models.Manager
                 ParameterName = "p_out_rowcnt",
                 Direction = System.Data.ParameterDirection.Output
             };
+            command.Parameters.Add(rowcountParameter);
+
 
             command.Connection = oc;
             command.Transaction = ot;
-
-            oc.Close();
 
 
             try
@@ -197,18 +197,19 @@ namespace Beadando.Models.Manager
                 command.ExecuteNonQuery();
                 int affectedRows = int.Parse(rowcountParameter.Value.ToString());
                 ot.Commit();
+                oc.Close();
                 return affectedRows;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+
                 ot.Rollback();
+                oc.Close();
                 return 0;
             }
         }
 
 
-
-        
         public bool CheckSorozatszam (string sorozatszam)
         {
             OracleConnection oc = GetOracleConnection();
