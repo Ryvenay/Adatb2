@@ -13,8 +13,8 @@ namespace Beadando.Models.Manager
         OracleConnection GetOracleConnection()
         {
             OracleConnection oc = new OracleConnection();
-
-            string connectionString = @"Data Source=193.225.33.71;User Id=ORA_S1340;Password=EKE2020;";
+            
+            string connectionString = @"Data Source=193.225.33.71; User Id=L5M9Q7; Password=EKE2020;";
             oc.ConnectionString = connectionString;
             return oc;
         }
@@ -22,13 +22,15 @@ namespace Beadando.Models.Manager
         public List<Gitar> Select()
         {
             List<Gitar> records = new List<Gitar>();
-            OracleConnection oc = new OracleConnection();
+            OracleConnection oc = GetOracleConnection();
+
+
             oc.Open();
 
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT gy.nev, g.tipus, g.rendszam FROM " +
+                CommandText = "SELECT g.sorozatszam, gy.nev, g.tipus FROM " +
                 " gitarok g INNER JOIN gyartok gy ON gy.id = g.gyarto_id"
             };
 

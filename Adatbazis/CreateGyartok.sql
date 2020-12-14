@@ -1,3 +1,4 @@
+drop table if exists gyartok;
 create table gyartok
 (
     id int not null,

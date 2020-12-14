@@ -28,28 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_gitarok = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_sorozatszam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_tipus = new System.Windows.Forms.TextBox();
+            this.tb_gyarto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dtp_gyartasDatum = new System.Windows.Forms.DateTimePicker();
+            this.cb_balkezes = new System.Windows.Forms.CheckBox();
+            this.tb_erintokszama = new System.Windows.Forms.Label();
+            this.tb_erintok = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_hozzaad = new System.Windows.Forms.Button();
+            this.btn_torol = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_gitarok)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_gitarok
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 273);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv_gitarok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_gitarok.Location = new System.Drawing.Point(12, 12);
+            this.dgv_gitarok.Name = "dgv_gitarok";
+            this.dgv_gitarok.RowHeadersWidth = 51;
+            this.dgv_gitarok.RowTemplate.Height = 24;
+            this.dgv_gitarok.Size = new System.Drawing.Size(776, 273);
+            this.dgv_gitarok.TabIndex = 0;
+            this.dgv_gitarok.AllowUserToAddRows = false;
+            this.dgv_gitarok.AllowUserToDeleteRows = false;
+            this.dgv_gitarok.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_gitarok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // label1
             // 
@@ -85,19 +95,19 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Gyártó:";
             // 
-            // textBox1
+            // tb_tipus
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 357);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 22);
-            this.textBox1.TabIndex = 5;
+            this.tb_tipus.Location = new System.Drawing.Point(140, 357);
+            this.tb_tipus.Name = "tb_tipus";
+            this.tb_tipus.Size = new System.Drawing.Size(171, 22);
+            this.tb_tipus.TabIndex = 5;
             // 
-            // textBox2
+            // tb_gyarto
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 397);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 22);
-            this.textBox2.TabIndex = 6;
+            this.tb_gyarto.Location = new System.Drawing.Point(140, 397);
+            this.tb_gyarto.Name = "tb_gyarto";
+            this.tb_gyarto.Size = new System.Drawing.Size(171, 22);
+            this.tb_gyarto.TabIndex = 6;
             // 
             // label4
             // 
@@ -108,32 +118,102 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Gyártás dátuma:";
             // 
-            // dateTimePicker1
+            // dtp_gyartasDatum
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 439);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 22);
-            this.dateTimePicker1.TabIndex = 8;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd MMM yyyy";
+            this.dtp_gyartasDatum.CustomFormat = "dd MMM yyyy";
+            this.dtp_gyartasDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_gyartasDatum.Location = new System.Drawing.Point(140, 439);
+            this.dtp_gyartasDatum.Name = "dtp_gyartasDatum";
+            this.dtp_gyartasDatum.Size = new System.Drawing.Size(171, 22);
+            this.dtp_gyartasDatum.TabIndex = 8;
+            // 
+            // cb_balkezes
+            // 
+            this.cb_balkezes.AutoSize = true;
+            this.cb_balkezes.Location = new System.Drawing.Point(412, 321);
+            this.cb_balkezes.Name = "cb_balkezes";
+            this.cb_balkezes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cb_balkezes.Size = new System.Drawing.Size(87, 21);
+            this.cb_balkezes.TabIndex = 10;
+            this.cb_balkezes.Text = "Balkezes";
+            this.cb_balkezes.UseVisualStyleBackColor = true;
+            // 
+            // tb_erintokszama
+            // 
+            this.tb_erintokszama.AutoSize = true;
+            this.tb_erintokszama.Location = new System.Drawing.Point(414, 362);
+            this.tb_erintokszama.Name = "tb_erintokszama";
+            this.tb_erintokszama.Size = new System.Drawing.Size(101, 17);
+            this.tb_erintokszama.TabIndex = 11;
+            this.tb_erintokszama.Text = "Érintők száma:";
+            // 
+            // tb_erintok
+            // 
+            this.tb_erintok.Location = new System.Drawing.Point(547, 357);
+            this.tb_erintok.Name = "tb_erintok";
+            this.tb_erintok.Size = new System.Drawing.Size(145, 22);
+            this.tb_erintok.TabIndex = 12;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(547, 397);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(145, 24);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(414, 400);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Hangszedők:";
+            // 
+            // btn_hozzaad
+            // 
+            this.btn_hozzaad.Location = new System.Drawing.Point(417, 441);
+            this.btn_hozzaad.Name = "btn_hozzaad";
+            this.btn_hozzaad.Size = new System.Drawing.Size(114, 37);
+            this.btn_hozzaad.TabIndex = 15;
+            this.btn_hozzaad.Text = "Hozzáad";
+            this.btn_hozzaad.UseVisualStyleBackColor = true;
+            // 
+            // btn_torol
+            // 
+            this.btn_torol.Location = new System.Drawing.Point(547, 441);
+            this.btn_torol.Name = "btn_torol";
+            this.btn_torol.Size = new System.Drawing.Size(115, 37);
+            this.btn_torol.TabIndex = 16;
+            this.btn_torol.Text = "Töröl";
+            this.btn_torol.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 490);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btn_torol);
+            this.Controls.Add(this.btn_hozzaad);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tb_erintok);
+            this.Controls.Add(this.tb_erintokszama);
+            this.Controls.Add(this.cb_balkezes);
+            this.Controls.Add(this.dtp_gyartasDatum);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_gyarto);
+            this.Controls.Add(this.tb_tipus);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_sorozatszam);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_gitarok);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_gitarok)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,15 +221,22 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_gitarok;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_sorozatszam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_tipus;
+        private System.Windows.Forms.TextBox tb_gyarto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_gyartasDatum;
+        private System.Windows.Forms.CheckBox cb_balkezes;
+        private System.Windows.Forms.Label tb_erintokszama;
+        private System.Windows.Forms.TextBox tb_erintok;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_hozzaad;
+        private System.Windows.Forms.Button btn_torol;
     }
 }
 

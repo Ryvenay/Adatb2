@@ -1,0 +1,12 @@
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\bin\Debug\Beadando.exe.config
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\bin\Debug\Beadando.exe
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\bin\Debug\Beadando.pdb
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.csprojAssemblyReference.cache
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.Form1.resources
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.Properties.Resources.resources
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.csproj.GenerateResource.cache
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.csproj.CoreCompileInputs.cache
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.csproj.CopyComplete
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.exe
+C:\Users\Ryvenay\Documents\Egyetem\adatb\Adatb2\Program\Beadando\Beadando\obj\Debug\Beadando.pdb
