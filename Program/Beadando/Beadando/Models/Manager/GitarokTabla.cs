@@ -2,6 +2,7 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -206,6 +207,8 @@ namespace Beadando.Models.Manager
         }
 
 
+
+        
         public bool CheckSorozatszam (string sorozatszam)
         {
             OracleConnection oc = GetOracleConnection();
@@ -219,12 +222,15 @@ namespace Beadando.Models.Manager
 
             OracleParameter correct = new OracleParameter()
             {
-                DbType = System.Data.DbType.Int32,
-                Direction = System.Data.ParameterDirection.ReturnValue
-            };
+                 OracleDbType = OracleDbType.Int32,
+                 Direction = System.Data.ParameterDirection.ReturnValue
+            }; 
+
+            command.Parameters.Add(correct);
 
             OracleParameter sorozatszamParameter = new OracleParameter()
             {
+                OracleDbType = OracleDbType.Varchar2,
                 DbType = System.Data.DbType.String,
                 ParameterName = "p_sorozatszam",
                 Direction = System.Data.ParameterDirection.Input,
@@ -247,6 +253,7 @@ namespace Beadando.Models.Manager
                 return false;
             }
         }
+        
 
     }
 }

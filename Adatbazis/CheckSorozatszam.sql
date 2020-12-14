@@ -1,4 +1,4 @@
-create or replace function sf_check_sorozatszam
+create or replace function sf_checksorozatszam
 (
     p_sorozatszam in gitarok.sorozatszam%TYPE
 )
@@ -24,7 +24,7 @@ begin
     while v_i < length(trim(p_sorozatszam)) loop
         v_char := substr(p_sorozatszam, v_i, 1);
         exit when not (ascii('A') <= ascii(v_char) and ascii(v_char) <= ascii('Z'));
-        v_i = v_i+1;
+        v_i := v_i+1;
     end loop;
 
     if v_i = length(trim(p_sorozatszam)) then
