@@ -243,6 +243,8 @@ namespace Beadando.Models.Manager
             command.Connection = oc;
             command.ExecuteNonQuery();
 
+            oc.Close();
+
             try
             {
                 int succesful = int.Parse(correct.Value.ToString());
