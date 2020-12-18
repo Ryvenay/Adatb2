@@ -31,7 +31,7 @@ namespace Beadando.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT g.sorozatszam, gy.nev, g.tipus, g.gyartas_datum FROM " +
+                CommandText = "SELECT g.sorozatszam, gy.nev, g.tipus, g.gyartas_datum, g.balkezes, g.erintok_szama FROM " +
                 " gitarok g INNER JOIN gyartok gy ON gy.id = g.gyarto_id"
             };
 
@@ -45,6 +45,16 @@ namespace Beadando.Models.Manager
                 gitar.Tipus = reader["tipus"].ToString();
                 gitar.Gyarto = reader["nev"].ToString();
                 gitar.GyartasDatum = DateTime.Parse(reader["gyartas_datum"].ToString());
+                if (reader["balkezes"].ToString() == "1")
+                {
+                    gitar.Balkezes = true;
+                }
+                else
+                {
+                    gitar.Balkezes = false;
+                }
+
+                gitar.ErintokSzama = int.Parse(reader["erintok_szama"].ToString());
 
                 records.Add(gitar);
             }

@@ -95,6 +95,28 @@ namespace Beadando
             };
 
             dgv_gitarok.Columns.Add(GyartasColumn);
+
+            DataGridViewColumn ErintoColumn = new DataGridViewColumn()
+            {
+                Name = "erinto",
+                HeaderText = "Érintők száma",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+            };
+
+            dgv_gitarok.Columns.Add(ErintoColumn);
+
+            DataGridViewColumn BalkezesColumn = new DataGridViewColumn()
+            {
+                Name = "balkezes",
+                HeaderText = "Balkezes",
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+            };
+
+            dgv_gitarok.Columns.Add(BalkezesColumn);
+
+
         }
 
         private void FillDataGridView()
@@ -120,6 +142,21 @@ namespace Beadando
                 DataGridViewCell DatumCell = new DataGridViewTextBoxCell();
                 DatumCell.Value = gitarokList[i].GyartasDatum.Year + "-" + gitarokList[i].GyartasDatum.Month + "-" + gitarokList[i].GyartasDatum.Day + " ";
                 dataGridViewRow.Cells.Add(DatumCell);
+
+                DataGridViewCell ErintoCell = new DataGridViewTextBoxCell();
+                ErintoCell.Value = gitarokList[i].ErintokSzama.ToString();
+                dataGridViewRow.Cells.Add(ErintoCell);
+
+                DataGridViewCell BalkezesCell = new DataGridViewTextBoxCell();
+                if(gitarokList[i].Balkezes)
+                {
+                    BalkezesCell.Value = "Igen";
+                }
+                else
+                {
+                    BalkezesCell.Value = "Nem";
+                }
+                dataGridViewRow.Cells.Add(BalkezesCell);
 
                 dataGridViewRows[i] = dataGridViewRow;
             }

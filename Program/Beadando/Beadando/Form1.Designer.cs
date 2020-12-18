@@ -55,8 +55,7 @@
             this.dgv_gitarok.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_gitarok.Location = new System.Drawing.Point(12, 12);
             this.dgv_gitarok.Name = "dgv_gitarok";
-            this.dgv_gitarok.RowHeadersWidth = 51;
-            this.dgv_gitarok.RowTemplate.Height = 24;
+            this.dgv_gitarok.RowHeadersWidth = 100;
             this.dgv_gitarok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_gitarok.Size = new System.Drawing.Size(776, 273);
             this.dgv_gitarok.TabIndex = 0;
